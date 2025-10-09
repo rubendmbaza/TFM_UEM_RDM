@@ -17,7 +17,7 @@ Si deseas realizar el entrenamiento desde cero:
 ---
 
 # 🚀 Sistema de Reconocimiento de Displays 7 Segmentos
-Correspondiente al Notebook "trabajo_final_bueno.ipynb"
+Correspondiente al Notebook "TFM_Ruben_Diaz_Molina.ipynb"
 
 ## 🔍 Descripción del Proyecto
 Sistema comparativo de modelos de visión artificial para el reconocimiento preciso de dígitos en displays de 7 segmentos, implementado en Google Colab.
