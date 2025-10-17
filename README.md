@@ -46,7 +46,7 @@ Este proyecto implementa y compara tres enfoques distintos de visión artificial
 
 ## 🎯 Métricas de Precisión
 
-Los resultados detallados de kas tablas de precisión se encuentran en el archivo `Tablas de precisión.xlsx`. El análisis se basa en tres métricas clave:
+Los resultados detallados de kas tablas de precisión se encuentran en el archivo `Tablas de Precisión.xlsx`. El análisis se basa en tres métricas clave:
 
 -   **Precisión Absoluta**: La métrica más estricta. La predicción debe ser una coincidencia exacta con el valor real, incluyendo todos los dígitos y el punto decimal.
 -   **Precisión Numérica**: Una métrica más flexible que considera un acierto si los dígitos son correctos, ignorando errores en el punto decimal.
