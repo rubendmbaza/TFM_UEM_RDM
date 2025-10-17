@@ -1,57 +1,61 @@
-🚀 TFM_UEM_RDM 
-Sistema de lectura de displays de 7 segmentos usando Gemma, EasyOCR y YOLOv8  
+# 🚀 TFM UEM - Digitalización de Displays de 7 Segmentos
 
-📝 Nota importante  
-El notebook de Colab no se visualiza correctamente en GitHub debido a un error con los widgets interactivos.  
+[![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?&logo=PyTorch&logoColor=white)](https://pytorch.org/)
+[![YOLOv8](https://img.shields.io/badge/YOLOv8-00FFFF.svg?&logo=YOLO&logoColor=darkblue)](https://github.com/ultralytics/ultralytics)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow)](https://huggingface.co/)
 
-▶️ Cómo usar:  
-Descarga el notebook.
+> **Estudio comparativo de modelos de IA (PaLI-Gemma, EasyOCR y YOLOv8) para el reconocimiento de dígitos en displays de 7 segmentos en entornos industriales.**
 
-Ábrelo desde tu cuenta de Google Colab.
+---
 
-Introduce tu Token de HuggingFace cuando sea requerido (se encuentra comentado en el texto, por lo que la celda en sí no da error).
+## 📝 Nota Importante
 
-🔄 Reentrenamiento personalizado  
-Si deseas realizar el entrenamiento desde cero:  
+El notebook de Colab no se visualiza correctamente en la interfaz de GitHub debido a un error de renderizado con los widgets interactivos.
 
-Elimina las carpetas yolo-...-runs después de ejecutar !git clone.
+### ▶️ Cómo Ejecutar el Proyecto
+1.  **Descargar el Notebook**: Haz clic en `TFM_Ruben_Diaz_Molina.ipynb` y luego en el botón "Download".
+2.  **Abrir en Google Colab**: Ve a [colab.research.google.com](https://colab.research.google.com) y selecciona `Archivo > Subir notebook` para abrir el archivo que has descargado.
+3.  **Autenticación**: Introduce tu Token de Hugging Face cuando la celda correspondiente lo solicite para poder descargar el modelo PaLI-Gemma.
 
-Sigue los pasos del notebook.
+---
 
-🚀 Sistema de Reconocimiento de Displays 7 Segmentos
-Correspondiente al Notebook "TFM_Ruben_Diaz_Molina.ipynb"
+## 🛠️ Modelos Evaluados
 
-🔍 Descripción del Proyecto
-Sistema comparativo de modelos de visión artificial para el reconocimiento preciso de dígitos en displays de 7 segmentos, implementado en Google Colab.
+Este proyecto implementa y compara tres enfoques distintos de visión artificial:
 
-🛠 Modelos Implementados
-###  Google Paligemma 3b
+### 1. Google PaLI-Gemma 3B
+- **Tipo**: Modelo Multimodal (Visión + Lenguaje).
+- **Método**: Realiza el reconocimiento mediante *prompts* en lenguaje natural (ej: "¿qué número ves?"). No requiere entrenamiento específico (*zero-shot learning*).
 
-Modelo multimodal (visión + lenguaje)
+### 2. EasyOCR
+- **Tipo**: Pipeline de Reconocimiento Óptico de Caracteres (OCR).
+- **Método**: Utiliza un sistema de dos etapas para detectar y luego reconocer texto. Se evalúa su rendimiento "de serie" sin *fine-tuning*.
 
-Reconocimiento mediante prompts naturales
+### 3. YOLOv8
+- **Tipo**: Detector de Objetos.
+- **Método**: Trata cada dígito (`0-9`) y el punto (`.`) como un objeto independiente que debe ser localizado y clasificado. Se han evaluado tres configuraciones:
 
-Zero-shot learning
+| Versión | Épocas | Tamaño Imagen | Pre-entrenamiento |
+|:--- |:---:|:---:|:---:|
+| **Básica** | 50 | 224x224 px | No |
+| **Optimizada** | 50 | 224x224 px | Sí (COCO) |
+| **Avanzada** | 100 | 320x320 px | Sí (COCO) |
 
-###  EasyOCR
+---
 
-Pipeline clásico de dos etapas:
-  1. Detección de texto sin Fine-Tuning.
-  2. Análisis del rendimiento con recortes guiados por YOLO para aislar el reconocimiento.
+## 🎯 Métricas de Precisión
 
-###  YOLOv8 (3 Versiones)
-| Versión          | Épocas | Tamaño Imagen | Pre-entrenamiento | 
-|------------------|--------|---------------|-------------------|
-| Básica           | 50     | 224px         | No                |
-| Optimizada       | 50     | 224px         | Sí                |
-| Avanzada         | 100    | 320px         | Sí                |
+Los resultados detallados y las tablas comparativas se encuentran en el archivo `Tablas de precisión.xlsx`. El análisis se basa en tres métricas clave:
 
-🎯 Métricas de Precisión
-Los resultados detallados y las tablas comparativas se encuentran en el archivo Tablas de precisión.xlsx. El análisis se basa en tres métricas:
+-   **Precisión Absoluta**: La métrica más estricta. La predicción debe ser una coincidencia exacta con el valor real, incluyendo todos los dígitos y el punto decimal.
+-   **Precisión Numérica**: Una métrica más flexible que considera un acierto si los dígitos son correctos, ignorando errores en el punto decimal.
+-   **Precisión Relativa**: Un análisis granular a nivel de carácter que mide la fiabilidad del modelo con un sistema de puntuación (`+1` por acierto, `0` por omisión, `-1` por error).
 
-Precisión Absoluta: La métrica más estricta. La predicción debe ser una coincidencia exacta con el valor real, incluyendo todos los dígitos y el punto decimal en su posición correcta.
+---
 
-Precisión Numérica: Una métrica más flexible. La predicción es correcta si los dígitos numéricos coinciden, ignorando errores u omisiones en el punto decimal.
-
-Precisión Relativa: Un análisis a nivel de carácter individual para una evaluación granular. Se usa un sistema de puntuación para medir la fiabilidad del modelo: +1 por acierto, 0 por omisión y -1 por error.
-
+## 🔄 Reentrenamiento Personalizado
+Si deseas realizar el entrenamiento de los modelos YOLOv8 desde cero:
+1.  Abre el notebook en Google Colab.
+2.  En las celdas de entrenamiento de YOLO, el código comprueba si la carpeta de resultados (`yolo-...-runs`) ya existe.
+3.  Para forzar un nuevo entrenamiento, simplemente elimina la carpeta correspondiente antes de ejecutar la celda.
