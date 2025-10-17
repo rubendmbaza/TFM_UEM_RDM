@@ -15,7 +15,7 @@ El notebook de Colab no se visualiza correctamente en la interfaz de GitHub debi
 
 ### ▶️ Cómo Ejecutar el Proyecto
 1.  **Descargar el Notebook**: Haz clic en `TFM_Ruben_Diaz_Molina.ipynb` y luego en el botón "Download".
-2.  **Abrir en Google Colab**: Ve a [colab.research.google.com](https://colab.research.google.com) y selecciona `Archivo > Subir notebook` para abrir el archivo que has descargado.
+2.  **Abrir en Google Colab**: Ve a [colab.research.google.com](https://colab.research.google.com) y selecciona `Archivo > Subir cuaderno` para abrir el archivo que has descargado.
 3.  **Autenticación**: Introduce tu Token de Hugging Face cuando la celda correspondiente lo solicite para poder descargar el modelo PaLI-Gemma.
 
 ---
