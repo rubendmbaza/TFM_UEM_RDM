@@ -56,6 +56,7 @@ Los resultados detallados de kas tablas de precisión se encuentran en el archiv
 
 ## 🔄 Reentrenamiento Personalizado
 Si deseas realizar el entrenamiento de los modelos YOLOv8 desde cero:
-1.  Abre el notebook en Google Colab.
-2.  En las celdas de entrenamiento de YOLO, el código comprueba si la carpeta de resultados (`yolo-...-runs`) ya existe.
-3.  Para forzar un nuevo entrenamiento, simplemente elimina la carpeta correspondiente antes de ejecutar la celda.
+1.  Abre el notebook en Google Colab y ejecuta la primera casilla.
+2.  Elimina el archivo de imágenes preselccionadas para test que se ecuentra en `imagenes > selected_images.npy`
+3.  En las celdas de entrenamiento de YOLO, el código comprueba si la carpeta de resultados (`yolo-...-runs`) ya existe.
+4.  Para forzar un nuevo entrenamiento, simplemente elimina la carpeta correspondiente antes de ejecutar la celda.
