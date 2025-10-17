@@ -41,15 +41,3 @@ Sistema comparativo de modelos de visión artificial para el reconocimiento prec
 | Optimizada       | 50     | 224px         | Sí                |
 | Avanzada         | 100    | 320px         | Sí                |
 
-## 📊 Resultados Clave
-Análisis comparativo en 20 imágenes de test:
-
-| Modelo       | Precisión Absoluta| Precisión Relativa| Tiempo/Imagen | Hardware Requerido |
-|--------------|-------------------|-------------------|---------------|--------------------|
-| Paligemma    | 35%               | 66%               |0.32s          | GPU                |
-| EasyOCR      | 0%                | 0%                |0.17s          | CPU                |
-| YOLO Básico  | 40%               | 83.19%            |0.04s          | GPU                |
-| YOLO Optimizado|   50%           |   90,27%          |0.05s          | GPU                |
-|YOLO Avanzado | 60 %              |92.04%             |0.04s          | GPU                |
-
-**Para hallar un análisis más complejo se puede consultar el excel "Comparativas.xlsx"**
